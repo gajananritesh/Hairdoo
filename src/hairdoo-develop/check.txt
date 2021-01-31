@@ -1,0 +1,57 @@
+add user my-details table for prefilled data
+update add card number  details for stripe
+is complete flag the order end
+send email to customer and vendor and artist on booking
+Added unique id fields in order table 
+
+
+
+=-------------------------------
+
+retrive customer
+keep bcc in admin
+html page for update status
+
+-------------------------
+
+
+add card details in GET book  details API #DONE
+services - active inactive #DONE
+added artist email in field
+
+ 
+Completed
+services - active inactive
+update add card number  details for stripe
+helped @brijesh to setup celery
+other update working on
+
+
+-need to integrate twilio client account
+-Social media login with apple account cause allauth does not have apple integrate
+=need to update some payment scenario for rebooking 
+
+
+#-------retrive customer
+customer = stripe.Customer.retrieve(
+    stripe_customer_id[0])
+customer.sources.create(card=token)
+
+
+
+
+update sign-up remove social_id
+made by default verified with social_id
+check stripe token
+check choices for add review
+check add tips tips
+check custom url like  https:\/127:0.0.1
+
+
+
+
+update social media id 
+
+
+ishan.vyas@rkmi.com
+8932()*&^

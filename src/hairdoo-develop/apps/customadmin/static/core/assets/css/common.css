@@ -1,0 +1,519 @@
+body {
+  background-color: #fafafa;
+  color: #222;
+}
+
+.card .form-group textarea.form-control {
+  height: 80px;
+}
+
+.login-brand .img-logo-fill {
+  width: 150px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.navbar-bg {
+  background-color: #000;
+}
+
+.main-sidebar .sidebar-brand .logo-link {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-sidebar .sidebar-menu li.active a {
+  color: #000;
+  background-color: #eeeeee96;
+}
+
+.main-sidebar .sidebar-menu li a i {
+  font-size: 16px;
+  margin-top: 2px;
+  margin-right: 15px;
+}
+
+.main-sidebar .sidebar-menu li a:hover {
+  color: #222;
+}
+
+.section .section-header h1 {
+  font-weight: 500;
+}
+
+.section .section-title::before {
+  background-color: #000;
+}
+
+body.sidebar-mini .main-sidebar .sidebar-menu > li.active > a {
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-primary,
+.btn-primary.disabled {
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #000;
+  border-color: #000;
+}
+
+.btn-primary:active,
+.btn-primary:hover,
+.btn-primary.disabled:active,
+.btn-primary.disabled:hover {
+  background-color: #4c4b4b !important;
+}
+
+.btn-primary:focus:active,
+.btn-primary.disabled:focus:active {
+  background-color: #4c4b4b !important;
+}
+
+.page-item.active .page-link {
+  background-color: #000;
+  border-color: #000;
+}
+
+.page-item.disabled .page-link {
+  color: #000;
+}
+
+a {
+  color: #222;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.badge.badge-success {
+  background-color: #30d158;
+}
+
+.fixed-width-first {
+  width: 70px;
+}
+
+table.dataTable thead th .custom-checkbox.custom-control {
+  padding-left: 0;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+table.dataTable thead th .custom-control-label::before,
+table.dataTable thead th .custom-control-label::after {
+  cursor: pointer;
+}
+
+table.dataTable tbody .custom-checkbox.custom-control {
+  cursor: pointer;
+  padding-left: 30px;
+}
+
+table.dataTable tbody .custom-checkbox.custom-control .custom-control-label::before,
+table.dataTable tbody .custom-checkbox.custom-control .custom-control-label::after {
+  cursor: pointer;
+}
+
+.action-div {
+  min-width: 100px;
+}
+
+.dropdown-item.has-icon i {
+  margin-top: 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+a.dropdown-item:focus,
+a.dropdown-item:active,
+a.dropdown-item.active {
+  background-color: #000;
+  color: #fff !important;
+}
+
+.selectric-items li.selected,
+.selectric-items li.highlighted {
+  background-color: #000;
+}
+
+.card.card-primary {
+  border-top: 2px solid #000;
+}
+
+.form-control:focus,
+.input-group-text:focus,
+.custom-select:focus,
+.custom-file-label:focus {
+  border-color: #000;
+}
+
+.selectric-open .selectric {
+  border-color: #000;
+}
+
+.select2-container.select2-container--focus .select2-selection--multiple,
+.select2-container.select2-container--focus .select2-selection--single {
+  border-color: #000;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice,
+.select2-container--default .select2-results__option[aria-selected="true"],
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: #000;
+}
+
+.select2-container.select2-container--open .select2-selection--single {
+  border-color: #000;
+}
+
+.section .section-header .section-header-back .btn.btn-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-style: inherit;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 31px;
+}
+
+.section .section-header .section-header-back .btn.btn-icon:hover {
+  background-color: #000;
+}
+
+.section .section-header .section-header-back .btn.btn-icon i {
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  line-height: 14px;
+}
+
+table.dataTable thead th.min-width-100 {
+  min-width: 100px;
+}
+
+.custom-active-inactive-group .selectgroup {
+  max-width: 370px;
+}
+
+.custom-active-inactive-group .selectgroup label.selectgroup-item {
+  margin: 0;
+}
+
+.custom-active-inactive-group .selectgroup label.selectgroup-item .selectgroup-button {
+  padding: 2px 1rem;
+  height: 42px;
+  font-size: 14px;
+  line-height: 36px;
+  font-weight: 400;
+}
+
+.custom-active-inactive-group .selectgroup label.selectgroup-item .selectgroup-input:focus + .selectgroup-button,
+.custom-active-inactive-group .selectgroup label.selectgroup-item .selectgroup-input:checked + .selectgroup-button {
+  background-color: #000;
+  border-color: #000;
+}
+
+.user-view-card-common .tickets .ticket-content {
+  width: 100%;
+}
+
+.user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail {
+  padding: 5px 0 5px 0;
+}
+
+.user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-title h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  color: #000;
+}
+
+.user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-title h4 .rating-star-badge {
+  font-size: 12px;
+  padding: 4px 8px 3px 8px;
+  line-height: 14px;
+  margin: -3px 0 0 5px;
+  display: inline-block;
+}
+
+.user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info .text-date-code {
+  color: #3dad4c !important;
+}
+
+.user-view-card-common .tickets .ticket-content .ticket-description {
+  color: #111;
+  margin-top: 15px;
+}
+
+.user-view-card-common .tickets .ticket-content .ticket-description p {
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 1200px;
+}
+
+.table-view-root-div {
+  padding: 0;
+  margin: 0;
+}
+
+.table-view-root-div .width-20 {
+  width: 20%;
+}
+
+.table-view-root-div .width-40 {
+  width: 40%;
+}
+
+.table-view-root-div .width-30 {
+  width: 30%;
+}
+
+.table-view-root-div .badge.custom-badge {
+  border-radius: 0px;
+  min-width: 80px;
+}
+
+.table-view-root-div span.title-td-span01 {
+  min-width: 100px;
+  display: inline-block;
+}
+
+.daterangepicker .btn-success,
+.daterangepicker .btn-success.disabled {
+  -webkit-box-shadow: 0 2px 6px #5d6df566;
+          box-shadow: 0 2px 6px #5d6df566;
+  background-color: #5d6df5;
+  border-color: #5d6df5;
+  color: #fff;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+  background-color: #000000;
+}
+
+.daterangepicker.single.ltr .ranges,
+.daterangepicker.single.ltr .calendar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 0 5px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.daterangepicker.ltr .left .daterangepicker_input {
+  padding-right: 12px;
+}
+
+.daterangepicker .calendar-time {
+  padding-left: 0;
+}
+
+.mlr-6 {
+  margin-right: -6px;
+  margin-left: -6px;
+}
+
+.plr-6 {
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+.card-footer.background-color-footer {
+  background-color: #fafafa !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border: none;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.heading-text-div h2 {
+  font-size: 24px;
+  margin: 0 0 15px 0;
+  color: #000;
+}
+
+@media screen and (min-width: 1025px) {
+  .main-sidebar .sidebar-brand {
+    height: 70px;
+    line-height: 70px;
+  }
+  nav.navbar.navbar-expand-lg.main-navbar .navbar-nav .dropdown-menu {
+    margin: 10px 0 0 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card .card-header,
+  .card .card-body,
+  .card .card-footer {
+    background-color: transparent;
+    padding: 20px 20px;
+  }
+  div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.85em;
+    padding-bottom: 0.85em;
+    white-space: nowrap;
+  }
+  div.dataTables_wrapper div.dataTables_paginate {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .main-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .main-wrapper-1 .section .section-header {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .navbar .nav-link {
+    padding-left: 0 !important;
+  }
+  .navbar .nav-link.nav-link-user {
+    padding-right: 0 !important;
+  }
+  .section .section-header .section-header-back .btn.btn-icon {
+    padding: 0;
+    background-color: #fff;
+  }
+  .section .section-header .section-header-back .btn.btn-icon:hover {
+    color: #000;
+    background-color: #fff;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info .bullet {
+    display: none;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info .text-address {
+    display: block;
+    margin: 0 0 5px 0;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info .text-address .text-block {
+    display: block;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-description p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .card .card-header,
+  .card .card-body,
+  .card .card-footer {
+    background-color: transparent;
+    padding: 20px 20px;
+  }
+  .table .last-action-width {
+    width: 150px !important;
+  }
+  table.dataTable thead th .custom-checkbox.custom-control {
+    padding-left: 0;
+    margin-right: 0;
+    cursor: pointer;
+    min-width: 65px;
+  }
+  .table:not(.table-sm) thead th {
+    min-width: 70px;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info .bullet {
+    display: none;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info .text-address {
+    display: block;
+    margin: 0 0 5px 0;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info .text-address .text-block {
+    display: block;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-description p {
+    font-size: 13px;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-header .ticket-detail .ticket-info .bullet {
+    display: none;
+  }
+  .user-view-card-common .tickets .ticket-content .ticket-description p {
+    font-size: 13px;
+  }
+  .table-view-root-div .last-th-price {
+    min-width: 200px;
+  }
+  .table-view-root-div span.title-td-span01 {
+    min-width: 75px;
+    font-size: 13px;
+  }
+  .table-view-root-div .badge.custom-badge {
+    border-radius: 0px;
+    min-width: 55px;
+    font-size: 10px;
+    padding: 7px 7px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-footer {
+    padding: 12px 30px 5px 30px;
+  }
+}
+/*# sourceMappingURL=common.css.map */

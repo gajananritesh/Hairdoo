@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Booking &mdash; hairdoo</title>
+
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'core/assets/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/ionicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/fonts/montserrat/montserrat-font.css' %}">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="{% static 'core/assets/modules/css/datatables.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/modules/css/dataTables.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/modules/css/select.bootstrap4.min.css' %}">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'core/assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/components.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/common.css' %}">
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                  class="fas fa-search"></i></a></li>
+          </ul>
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
+            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            <div class="search-backdrop"></div>
+            <div class="search-result">
+              <div class="search-header">
+                Search
+              </div>
+              <div class="search-item">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-item">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-item">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+
+            </div>
+          </div>
+        </form>
+
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+              <img alt="image" src="{% static 'core/assets/img/avatar/avatar-5.png' %}" class="rounded-circle mr-1">
+              <div class="d-sm-none d-lg-inline-block">Hi, {{request.user.first_name}} {{request.user.last_name}}</div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="{% url 'core:user-update' pk=request.user.pk %}" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+              <a href="{% url 'core:user-password' pk=request.user.pk %}" class="dropdown-item has-icon">
+                <i class="fas fa-cog"></i> Change Password
+              </a>
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'auth:auth_logout' %}" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+              {% endif %}
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="{% url 'core:homepage' %}" class="logo-link"> <img src="{% static 'core/assets/img/images/logo.svg' %}" alt="logo"
+                class="img-fluid img-logo" /> </a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a href="{% url 'core:homepage' %}">H</a>
+          </div>
+          <ul class="sidebar-menu">
+            <li><a class="nav-link" href="{% url 'core:homepage' %}"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+            <li><a class="nav-link" href="{% url 'core:registred-users' %}"><i class="fas fa-user"></i> <span>User</span></a></li>
+            <li class="active"><a class="nav-link" href="{% url 'core:bookings' %}"><i class="fas fa-book"></i>
+                <span>Booking</span></a></li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+
+          <div class="section-header">
+            <h1>Booking</h1>
+          </div>
+          <div align="center">
+            {% if messages %}
+            {% for msg in messages %}
+            <div class="alert alert-info alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <b>{{msg.message}}</b>
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Booking</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped" id="table-2">
+                      <thead>
+                        <tr>
+                          <th class="text-center fixed-width-first">
+                            <div class="custom-checkbox custom-control">
+                              <input type="checkbox" data-checkboxes="booking-group"
+                                data-checkbox-role="group_data_check" class="custom-control-input" id="checkbox-all">
+                              <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
+                            </div>
+                          </th>
+                          <th>Services</th>
+                          <th>Progress</th>
+                          <th>Members</th>
+                          <th class="min-width-100">Schedule Date</th>
+                          <th>Status</th>
+                          <th class="last-action-width">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for o in object_list %}
+                        <tr>
+                          <td>
+                            <div class="custom-checkbox custom-control">
+                              <input type="checkbox" data-checkboxes="booking-group" class="custom-control-input"
+                                id="checkbox-{{forloop.counter}}">
+                              <label for="checkbox-{{forloop.counter}}" class="custom-control-label">&nbsp;</label>
+                            </div>
+                          </td>
+                          <td>{{o.status}}</td>
+                          <td class="align-middle">
+                            {% if o.status == "COMPLETE" %}
+                            <div class="progress" data-height="4" data-toggle="tooltip" title="100%">
+                              <div class="progress-bar bg-success" data-width="100%"></div>
+                            </div>
+                            
+                            {% elif o.status == "PROGRESS" %}
+                          <div class="progress" data-height="4" data-toggle="tooltip" title="70%">
+                            <div class="progress-bar bg-warning" data-width="70%"></div>
+                          </div>
+                            
+                            {% elif o.status == "ARRIVING" %}
+                            <div class="progress" data-height="4" data-toggle="tooltip" title="80%">
+                              <div class="progress-bar bg-info" data-width="80%"></div>
+                            </div>
+                            {% endif %}
+                            
+                          </td>
+                          <td>
+                            {% if o.status == "COMPLETE" %}
+                            <div class="member-images-div"> <img alt="image" src="{% static 'core/assets/img/avatar/avatar-2.png' %}"
+                                class="rounded-circle" width="35" data-toggle="tooltip" title="{{o.book_by.first_name}} {{o.book_by.last_name}}">
+                            </div>
+                            
+                            {% elif o.status == "PROGRESS" %}
+                            <div class="member-images-div"> <img alt="image" src="{% static 'core/assets/img/avatar/avatar-6.png' %}"
+                                class="rounded-circle" width="35" data-toggle="tooltip" title="{{o.book_by.first_name}} {{o.book_by.last_name}}">
+                            </div>
+                            {% elif o.status == "ARRIVING" %}
+                            <div class="member-images-div"> <img alt="image" src="{% static 'core/assets/img/avatar/avatar-3.png' %}"
+                                class="rounded-circle" width="35" data-toggle="tooltip" title="{{o.book_by.first_name}} {{o.book_by.last_name}}">
+                            </div>
+                            {% endif %}
+                           
+                          </td>
+                          <td>{{o.earliest}}</td>
+                          <td>
+                            {% if o.status == "COMPLETE" %}
+                            <div class="badge badge-success">Completed</div>
+                            
+                            {% elif o.status == "PROGRESS" %}
+                            <div class="badge badge-warning">In Progress</div>
+
+                            {% elif o.status == "ARRIVING" %}
+                            <div class="badge badge-info">Arriving</div>
+                            {% endif %}
+                          </td>
+                          <td class="last-action-width">
+                            <div class="action-div">
+                              <a href="{% url 'core:booked-user-detail' id=o.id %}" class="btn btn-primary btn-action btn-view mr-1"
+                                data-toggle="tooltip" title="View"><i class="fas fa-eye"></i></a>
+                              <a href="{% url 'core:edit-booking' id=o.id %}" class="btn btn-primary btn-action btn-edit mr-1"
+                                data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                              <a class="btn btn-danger btn-action btn-delete open-my-modal" data-id="{{ o.id }}" data-toggle="modal"
+                                title="Delete" data-target="#delete-modal"><i class="fas fa-trash"></i></a>
+                            </div>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </div>
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2020 <a href="{% url 'core:homepage' %}">hairdoo</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <div class="modal fade " tabindex="-1" role="dialog" id="delete-modal">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are You Sure?</h5> <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body"> This action can not be undone. Do you want to continue?</div>
+        <div class="modal-footer"> <a href="" class="btn btn-danger btn-shadow" id="doSomething">Yes</a>
+          <a class="btn btn-secondary" id="">Cancel</a></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    window.CSRF_TOKEN = "{{ csrf_token }}";
+  </script>
+  <script>
+    $(document).on("click", ".open-my-modal", function (event) {
+
+        let get_id = $(this).data('id');
+        //$('#success_modal_pucrchase').modal('show');
+        $('#doSomething').on('click', function () {
+          $.ajax({
+            type: "POST",
+            url: "{% url 'core:booking-delete' %}",
+            data: {
+              csrfmiddlewaretoken: window.CSRF_TOKEN,
+              "get_id": get_id,
+            },
+            success: function (response) {
+              if (response['status'] === 'updated') {
+                $('#msg').append(
+                  '<div class="alert alert-success">'
+                  + '<strong>Project Updated!</strong>'
+                  + '</div>'
+                );
+                setTimeout(function () {
+                  location.reload();
+                }, 20);
+                setTimeout(function () {
+                  $('#success_modal_pucrchasel').modal('hide');
+                }, 2000);
+              }
+            },
+          });
+        })
+      });
+  </script>
+  <!-- General JS Scripts -->
+  <script src="{% static 'core/assets/modules/js/jquery.min.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/popper.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/tooltip.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/jquery.nicescroll.min.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/moment.min.js' %}"></script>
+  <script src="{% static 'core/assets/js/hairdoo.js' %}"></script>
+
+  <!-- JS Libraies -->
+  <script src="{% static 'core/assets/modules/js/datatables.min.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/dataTables.bootstrap4.min.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/dataTables.select.min.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/jquery-ui.min.js' %}"></script>
+
+  <!-- Page Specific JS File -->
+  <script src="{% static 'core/assets/js/page/modules-datatables.js' %}"></script>
+
+  <!-- Template JS File -->
+  <script src="{% static 'core/assets/js/scripts.js' %}"></script>
+  <script src="{% static 'core/assets/js/custom.js' %}"></script>
+
+</body>
+
+</html>

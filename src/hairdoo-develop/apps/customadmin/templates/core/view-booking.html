@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Booking &mdash; hairdoo</title>
+
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'core/assets/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/ionicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/fonts/montserrat/montserrat-font.css' %}">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="{% static 'core/assets/css/bootstrap-social/bootstrap-social.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/modules/css/select2.min.css' %}">
+  
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'core/assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/components.css' %}">
+  <link rel="stylesheet" href="{% static 'core/assets/css/common.css' %}">
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+          </ul>
+          <div class="search-element">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
+            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            <div class="search-backdrop"></div>
+            <div class="search-result">
+              <div class="search-header">
+                Search
+              </div>
+              <div class="search-item">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-item">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+              <div class="search-item">
+                <a href="#">Lorem, ipsum dolor.</a>
+                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
+              </div>
+             
+            </div>
+          </div>
+        </form>
+        
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+              <img alt="image" src="{% static 'core/assets/img/avatar/avatar-5.png' %}" class="rounded-circle mr-1">
+              <div class="d-sm-none d-lg-inline-block">Hi, {{request.user.first_name}} {{request.user.last_name}}</div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a href="{% url 'core:user-update' pk=request.user.pk %}" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+              <a href="{% url 'core:user-password' pk=request.user.pk %}" class="dropdown-item has-icon">
+                <i class="fas fa-cog"></i> Change Password
+              </a>
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'auth:auth_logout' %}" class="dropdown-item has-icon text-danger">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+              {% endif %}
+            </div>
+          </li>
+        </ul>
+        </nav>
+
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="{% url 'core:homepage' %}" class="logo-link"> <img src="{% static 'core/assets/img/images/logo.svg' %}" alt="logo" class="img-fluid img-logo" /> </a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a href="{% url 'core:homepage' %}">H</a>
+          </div>
+          <ul class="sidebar-menu">
+            <li><a class="nav-link" href="{% url 'core:homepage' %}"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+            <li><a class="nav-link" href="{% url 'core:registred-users' %}"><i class="fas fa-user"></i> <span>User</span></a></li>
+            <li class="active"><a class="nav-link" href="{% url 'core:bookings' %}"><i class="fas fa-book"></i> <span>Booking</span></a></li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+
+          <div class="section-header">
+            <div class="section-header-back">
+              <a href="{% url 'core:bookings' %}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+            </div>
+            <h1>View booking </h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="{% url 'core:bookings' %}">Booking</a></div>
+              <div class="breadcrumb-item">View booking</div>
+            </div>
+          </div>
+
+          <div class="section-body">
+            
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card user-view-card-common booking-view-card-common">
+                  <div class="card-header">
+                    <h4>View booking</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="tickets">
+                      <div class="ticket-content">
+                        <div class="ticket-header">
+                          <div class="ticket-sender-picture img-shadow">
+                            <img src="{% static 'core/assets/img/avatar/user-avatar01.png' %}" class="square-circle" alt="image">
+                          </div>
+                          <div class="ticket-detail">
+                            <div class="ticket-title">
+                              <h4 id="myartist"><span class="badge badge-success rating-star-badge">4.8 <span class="small">/ 5</span></span> </h4>
+                            </div>
+                            <div class="ticket-info">
+                              <div class="font-weight-600 text-address">Address : <span class="text-block" id="myaddress"></span><span id="mypin"></span></span></div>
+                              <div class="bullet"></div>
+                              <div class="text-primary font-weight-600 text-zip-code">Status : <span id="mystatus"></span></div>
+                              <div class="bullet"></div>
+                              <div class="text-success font-weight-600 text-date-code">Schedule Date : <span id="mydate"></span> </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ticket-description">
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+
+                        <div class="table-view-root-div">
+                          <div class="table-responsive">
+                            <table class="table table-bordered table-md">
+                              <tbody>
+                                <tr>
+                                  <th class="width-20">Total member</th>
+                                  <th class="width-30">Services type</th>
+                                  <th class="width-20">Time</th>
+                                  <th class="width-30 last-th-price">Price</th>
+                                </tr>
+                                {% for o in  object_list %}
+                                <tr>
+                                  <input type="hidden" name="artistname" value="{{o.order.artist.name}}" id="artist">
+                                  <input type="hidden" name="address" value="{{o.order.full_address}}" id="address">
+                                  <input type="hidden" name="pin" value="{{o.order.zip_code}}" id="zip_code">
+                                  <input type="hidden" name="status" value="{{o.order.status}}" id="status">
+                                  <input type="hidden" name="date" value="{{o.order.earliest}}" id="date">
+                                  <td id="{{o.service.id}}">{{o.quantity}}</td>
+                                  <td>{{o.service.name}}</td>
+                                  {% if o.service.name == "men's hairCut" %}
+                                  <td>30-45 mins</td>
+                                  {% elif o.service.name == "women's haircut" %}
+                                  <td>30-45 mins</td>
+                                  {% elif o.service.name == "beard trim" %}
+                                  <td>5-10 mins</td>
+                                  {% elif o.service.name == "blowout" %}
+                                  <td>15-20 mins</td>
+                                  {% endif %}
+                                  
+                                  {% if o.service.name == "men's hairCut" %}
+                                  <td><div class="badge badge-primary custom-badge" id="men">${{o.service.price}}</div></td>
+                                  {% elif o.service.name == "women's haircut" %}
+                                  <td>
+                                    <div class="badge badge-primary custom-badge" id="women">${{o.service.price}}</div>
+                                  </td>
+                                  {% elif o.service.name == "beard trim" %}
+                                  <td>
+                                    <div class="badge badge-primary custom-badge" id="beard">${{o.service.price}}</div>
+                                  </td>
+                                  {% elif o.service.name == "blowout" %}
+                                  <td>
+                                    <div class="badge badge-primary custom-badge" id="blowout">${{o.service.price}}</div>
+                                  </td>
+                                  {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% if object_list %}
+                                <tr>
+                                  <td colspan="3"> </td>
+                                  <td class="text-right-td"> <span class="title-td-span01">Service Fee</span> <div class="badge badge-primary custom-badge ml-2" id="tax">$7.00</div> </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="3"> </td>
+                                  <td class="text-right-td"> <span class="title-td-span01">Subtotal</span> <div class="badge badge-primary custom-badge ml-2" id="subtotal">$103.00</div> </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="3"> </td>
+                                  <td class="text-right-td"> <span class="title-td-span01">15% Tip</span> <div class="badge badge-success custom-badge ml-2" id="tip">$15.45</div> </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="3"> </td>
+                                  <td class="text-right-td"> <span class="title-td-span01">Total</span> <div class="badge badge-dark custom-badge ml-2" id="total">$118.45</div> </td>
+                                </tr>
+                                {% endif %}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2020 <a href="{% url 'core:homepage' %}">hairdoo</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- General JS Scripts -->
+  <script src="{% static 'core/assets/modules/js/jquery.min.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/popper.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/tooltip.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/jquery.nicescroll.min.js' %}"></script>
+  <script src="{% static 'core/assets/modules/js/moment.min.js' %}"></script>
+  <script src="{% static 'core/assets/js/hairdoo.js' %}"></script>
+  
+  <!-- JS Libraies -->
+  <script src="{% static 'core/assets/modules/js/select2.full.min.js' %}"></script>
+
+  <!-- Template JS File -->
+  <script src="{% static 'core/assets/js/scripts.js' %}"></script>
+  <script src="{% static 'core/assets/js/custom.js' %}"></script>
+<script>
+  $('document').ready(function(){
+      name = $('#artist').val();
+      $('#myartist').text(name);
+      address = $('#address').val();
+      $('#myaddress').text(address);
+      pin = $('#zip_code').val();
+      $('#mypin').text(' '+pin);
+      status = $('#status').val();
+      $('#mystatus').text(status);
+      date = $('#date').val();
+      $('#mydate').text(date);
+      subtotal = 0;
+      if ($("#men").length != 0) {
+        var quantity = $("#1").text();
+        var price = $("#men").text().replace("$", "");
+        var subtotal1 = parseInt(quantity) * parseInt(price);
+        //$('#subtotal').text('$'+ subtotal);
+        subtotal+=subtotal1;
+        console.log(subtotal1);
+
+    }
+      if ($("#women").length != 0) {
+      var quantity = $("#3").text();
+      var price = $("#women").text().replace("$", "");
+      var subtotal2 = parseInt(quantity) * parseInt(price);
+     // $('#subtotal').text('$' + subtotal);
+        subtotal+=subtotal2;
+        console.log(subtotal2);
+
+    }
+      if ($("#beard").length != 0) {
+      var quantity = $("#2").text();
+      var price = $("#beard").text().replace("$", "");
+      var subtotal3 = parseInt(quantity) * parseInt(price);
+      //$('#subtotal').text('$' + subtotal);
+        console.log(subtotal3);
+        subtotal += subtotal3;
+
+
+    }
+     if ($("#blowout").length != 0) {
+      var quantity = $("#4").text();
+      var price = $("#blowout").text().replace("$", "");
+      var subtotal4 = parseInt(quantity) * parseInt(price);
+      //$('#subtotal').text('$' + subtotal);
+        console.log(subtotal4);
+        subtotal += subtotal4;
+
+
+    }
+    
+    var tax = parseInt($("#tax").text().replace("$", ""));
+    $('#subtotal').text('$' + subtotal);
+    var tip = (subtotal * parseFloat(0.15)).toFixed(2);
+    $('#tip').text('$' + tip);
+
+    var total = parseInt(subtotal) + parseFloat(tip) + parseInt(tax);
+    $('#total').text('$' + total);
+
+    console.log((total));
+  });
+</script>
+</body>
+</html>
